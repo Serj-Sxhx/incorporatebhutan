@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IncorporateBhutan</title>
+<meta name="description" content="Set up a family office, fund or investment manager in Gelephu Mindfulness City, Bhutan. Check eligibility, prepare your GFSO notification and land with local substance.">
+<link rel="stylesheet" href="autoco.css">
+<style>
+  /* Page layout built only from AutoCo tokens. */
+  html { scroll-padding-top: calc(var(--header-height) + 8px); scroll-behavior: smooth; }
+  h1, h2, h3 { text-wrap: balance; }
+  p { margin: 0; }
+  .ib-header { border-bottom: var(--border-hairline) solid var(--line); background: var(--paper); position: sticky; top: 0; z-index: 10; }
+  .ib-header__row { min-height: var(--header-height); display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+  .ib-nav { display: flex; align-items: center; gap: var(--space-6); font-size: 13px; }
+  .ib-nav a:not(.ac-btn) { color: var(--ink-3); text-decoration: none; }
+  .ib-nav a:not(.ac-btn):hover { color: var(--accent); }
+
+  .ib-hero { padding-block: clamp(64px, 9vw, var(--space-32)); }
+  .ib-hero__stack { display: flex; flex-direction: column; gap: var(--space-8); }
+  .ib-display { margin: 0; font-size: clamp(34px, 5.2vw, 60px); line-height: 1.12; font-weight: 500; letter-spacing: -0.02em; max-width: 24ch; }
+  .ib-lead { font-size: clamp(15px, 1.3vw, 18px); line-height: 1.65; color: var(--ink-2); max-width: var(--measure-lead); }
+  .ib-actions { display: flex; flex-wrap: wrap; gap: var(--space-6); align-items: center; }
+  .ib-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--border-hairline); background: var(--line); border: var(--border-hairline) solid var(--line); margin-top: var(--space-12); }
+  .ib-fact { background: var(--paper); padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); }
+  .ib-fact b { font-weight: 500; font-size: 22px; letter-spacing: -0.01em; }
+  .ib-fact span:last-child { font-size: 13px; color: var(--ink-4); }
+
+  .ib-head { display: flex; flex-direction: column; gap: var(--space-4); margin-bottom: var(--space-10); }
+  .ib-h2 { margin: 0; font-size: clamp(24px, 2.8vw, 34px); line-height: 1.25; font-weight: 500; letter-spacing: -0.01em; max-width: 24ch; }
+  .ib-intro { color: var(--ink-2); max-width: var(--measure); }
+  .ib-note { font-size: 13px; color: var(--ink-4); margin-top: var(--space-6); max-width: 72ch; }
+
+  /* eligibility check */
+  .ib-check { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-12); align-items: start; }
+  .ib-q { border: 0; margin: 0 0 var(--space-6); padding: 0; min-width: 0; }
+  .ib-q legend { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: var(--space-3); padding: 0; }
+  .ib-q[hidden] { display: none; }
+  .ib-opts { display: grid; gap: var(--space-2); }
+  .ib-opt { display: flex; gap: var(--space-3); align-items: flex-start; padding: 12px 14px; background: var(--paper-raised); border: var(--border-hairline) solid var(--line-strong); cursor: pointer; font-size: 14px; line-height: 1.45; }
+  .ib-opt:hover { border-color: var(--ink-4); }
+  .ib-opt input { accent-color: var(--accent); margin: 3px 0 0; flex: 0 0 auto; }
+  .ib-opt:has(input:checked) { border-color: var(--ink); }
+  .ib-opt small { display: block; color: var(--ink-4); font-size: 12px; margin-top: 2px; }
+  .ib-field { display: flex; flex-direction: column; gap: var(--space-2); }
+  .ib-input { min-height: 48px; padding: 0 14px; width: 100%; box-sizing: border-box; background: var(--paper-raised); border: var(--border-hairline) solid var(--line-strong); border-radius: 0; color: var(--ink); font-family: inherit; font-size: 15px; }
+  .ib-input:focus-visible, .ib-opt:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .ib-help { font-size: 12px; color: var(--ink-4); }
+
+  .ib-result { position: sticky; top: calc(var(--header-height) + 24px); }
+  .ib-result .ac-box { gap: var(--space-5); }
+  .ib-verdict { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.3; text-wrap: balance; }
+  .ib-kv { list-style: none; margin: 0; padding: 0; }
+  .ib-kv li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: var(--space-4); padding-block: var(--space-3); border-top: var(--border-hairline) solid var(--line); font-size: 14px; }
+  .ib-kv li:first-child { border-top-color: var(--ink); }
+  .ib-kv .ac-label { padding-top: 3px; }
+  .ib-steps { margin: 0; padding-left: 20px; font-size: 14px; color: var(--ink-2); display: grid; gap: var(--space-2); }
+  .ib-flag { font-size: 13px; color: var(--ink-2); border-left: var(--border-stripe) solid var(--line-strong); padding-left: var(--space-3); }
+
+  /* regime table */
+  .ib-table-wrap { overflow-x: auto; }
+  .ib-table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 14px; }
+  .ib-table th { text-align: left; font-weight: 400; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-4); padding: 0 var(--space-4) var(--space-3) 0; vertical-align: bottom; }
+  .ib-table td { border-top: var(--border-hairline) solid var(--line); padding: var(--space-4) var(--space-4) var(--space-4) 0; vertical-align: top; line-height: 1.55; color: var(--ink-2); }
+  .ib-table tr:first-child td { border-top-color: var(--ink); }
+  .ib-table td:first-child { color: var(--ink); font-weight: 500; width: 18%; }
+
+  .ib-rows { list-style: none; margin: 0; padding: 0; }
+  .ib-rows li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--space-6); padding-block: var(--space-4); border-top: var(--border-hairline) solid var(--line); font-size: 14px; }
+  .ib-rows li:first-child { border-top-color: var(--ink); }
+  .ib-rows b { font-weight: 500; }
+  .ib-rows span { color: var(--ink-2); }
+
+  /* faq */
+  .ib-faq details { border-top: var(--border-hairline) solid var(--line); padding-block: var(--space-5); }
+  .ib-faq details:first-child { border-top-color: var(--ink); }
+  .ib-faq summary { cursor: pointer; list-style: none; font-size: 17px; font-weight: 500; display: flex; justify-content: space-between; gap: var(--space-4); }
+  .ib-faq summary::-webkit-details-marker { display: none; }
+  .ib-faq summary::after { content: "+"; color: var(--accent); font-weight: 400; }
+  .ib-faq details[open] summary::after { content: "−"; }
+  .ib-faq p { color: var(--ink-2); max-width: var(--measure); margin-top: var(--space-3); }
+
+  /* closing */
+  .ib-close { padding-block: clamp(var(--space-14), 7vw, var(--space-26)); }
+  .ib-cta { margin: var(--space-10) 0 var(--space-4); font-size: clamp(26px, 3.4vw, 42px); line-height: 1.2; font-weight: 500; letter-spacing: -0.01em; max-width: 24ch; }
+  .ib-form { display: flex; flex-direction: column; gap: var(--space-5); max-width: 720px; margin-top: var(--space-10); }
+  .ib-form__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); }
+  .ib-tick { display: flex; gap: var(--space-3); align-items: flex-start; font-size: 14px; color: var(--inverse-muted); }
+  .ib-tick input { accent-color: var(--inverse-text); margin-top: 4px; }
+  .ib-footer { border-top: var(--border-hairline) solid var(--inverse-divider); padding-block: var(--space-10) var(--space-12); font-size: 13px; color: var(--inverse-subtle); display: flex; flex-direction: column; gap: var(--space-5); }
+  .ib-footer nav { display: flex; flex-wrap: wrap; gap: var(--space-6); }
+  .ib-footer a { color: var(--inverse-muted); }
+  .ib-footer .ac-wordmark { color: var(--inverse-text); }
+  .ib-footer p { max-width: 80ch; }
+
+  @media (max-width: 900px) { .ib-check { grid-template-columns: minmax(0, 1fr); } .ib-result { position: static; } }
+  @media (max-width: 720px) {
+    .ib-nav a:not(.ac-btn) { display: none; }
+    .ib-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ib-rows li, .ib-kv li, .ib-form__grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }
+    .ib-form .ac-btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header class="ib-header">
+  <div class="ac-container ib-header__row">
+    <a class="ac-wordmark" href="#top">IncorporateBhutan</a>
+    <nav class="ib-nav" aria-label="Primary">
+      <a href="#check">Eligibility</a>
+      <a href="#regime">The regime</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">Questions</a>
+      <a class="ac-btn ac-btn--sm" href="#book">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="ac-texture ib-hero">
+    <div class="ac-container ib-hero__stack">
+      <div class="ac-eyebrow ac-eyebrow--accent">Family offices and funds in Gelephu Mindfulness City</div>
+      <h1 class="ib-display">Set up your family office in Bhutan by notification, not application.</h1>
+      <p class="ib-lead">Since 1 October 2026, a single-family office with US$10M in assets qualifies for a 15-year tax exemption by notifying the regulator. We check your eligibility, prepare the pack and land your team.</p>
+      <div class="ib-actions">
+        <a class="ac-btn" href="#check">Check eligibility</a>
+        <a class="ac-link" href="#book" style="font-size:13px">Or book a call</a>
+      </div>
+      <div class="ib-facts" aria-label="Key terms">
+        <div class="ib-fact"><span class="ac-label">Entry threshold</span><b>US$10M</b><span>Assets under management, tested once at entry</span></div>
+        <div class="ib-fact"><span class="ac-label">Family office relief</span><b>15 years</b><span>Exemption on income from designated investments</span></div>
+        <div class="ib-fact"><span class="ac-label">No-objection</span><b>4 weeks</b><span>GFSO target for exempt funds and recognised managers</span></div>
+        <div class="ib-fact"><span class="ac-label">Early managers</span><b>0% for 5 years</b><span>If approved on or before 31 December 2027</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thesis -->
+  <section class="ac-section">
+    <div class="ac-container">
+      <div class="ib-head">
+        <div class="ac-eyebrow">Thesis</div>
+        <h2 class="ib-h2">The rules are simple. The setup still takes work.</h2>
+        <p class="ib-intro">GMC answers the three questions families test a jurisdiction on: approval time, clarity of conditions, and a real regulator.</p>
+      </div>
+      <div class="ac-grid-2">
+        <div class="ac-rule-item"><div class="ac-rule-item__num">01</div><h3 class="ac-rule-item__title">Relief arrives on notification.</h3><p class="ac-rule-item__body">A single-family office meeting the conditions qualifies automatically. No licence, and no tax application.</p></div>
+        <div class="ac-rule-item"><div class="ac-rule-item__num">02</div><h3 class="ac-rule-item__title">Assets are tested once, at entry.</h3><p class="ac-rule-item__body">The AUM minimum applies when you apply, and legally enforceable committed capital counts toward it.</p></div>
+        <div class="ac-rule-item"><div class="ac-rule-item__num">03</div><h3 class="ac-rule-item__title">Response times are published.</h3><p class="ac-rule-item__body">Four weeks for a no-objection. Two to three months on average for an In-Principle Approval on a full licence.</p></div>
+        <div class="ac-rule-item"><div class="ac-rule-item__num">04</div><h3 class="ac-rule-item__title">Substance is the real condition.</h3><p class="ac-rule-item__body">Bhutanese hires, local spend, days on the ground and a GMC bank account. That is where most setups stall.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eligibility check -->
+  <section class="ac-section" id="check">
+    <div class="ac-container">
+      <div class="ib-head">
+        <div class="ac-eyebrow">01 Eligibility check</div>
+        <h2 class="ib-h2">See your route and conditions in two minutes.</h2>
+        <p class="ib-intro">Answers stay in your browser. The result follows the GMC Guidelines released 20 September 2026.</p>
+      </div>
+
+      <div class="ib-check">
+        <form id="elig" novalidate>
+          <fieldset class="ib-q">
+            <legend>What are you setting up?</legend>
+            <div class="ib-opts">
+              <label class="ib-opt"><input type="radio" name="type" value="sfo" checked><span>Single-family office<small>Manages one family's assets. No third-party money.</small></span></label>
+              <label class="ib-opt"><input type="radio" name="type" value="mfo"><span>Multi-family office<small>Manages assets for more than one family.</small></span></label>
+              <label class="ib-opt"><input type="radio" name="type" value="fund"><span>Fund<small>A pooled vehicle domiciled in GMC.</small></span></label>
+              <label class="ib-opt"><input type="radio" name="type" value="manager"><span>Investment manager<small>Managing assets or funds from GMC.</small></span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="ib-q">
+            <legend>Assets under management (US$ millions)</legend>
+            <div class="ib-field">
+              <input class="ib-input" id="aum" name="aum" type="number" min="0" step="0.5" inputmode="decimal" value="25" aria-describedby="aum-help">
+              <span class="ib-help" id="aum-help">Legally enforceable committed capital counts.</span>
+            </div>
+          </fieldset>
+
+          <fieldset class="ib-q" data-for="sfo">
+            <legend>Trustee arrangement</legend>
+            <div class="ib-opts">
+              <label class="ib-opt"><input type="radio" name="trustee" value="dedicated" checked><span>Dedicated trustee, or none</span></label>
+              <label class="ib-opt"><input type="radio" name="trustee" value="mfo"><span>Trustee services from a multi-family office</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="ib-q" data-for="fund">
+            <legend>Fund type</legend>
+            <div class="ib-opts">
+              <label class="ib-opt"><input type="radio" name="ftype" value="qif" checked><span>Qualified Investor Fund<small>Professional clients, US$500,000 minimum subscription.</small></span></label>
+              <label class="ib-opt"><input type="radio" name="ftype" value="exempt"><span>Exempt Fund<small>Professional clients, US$50,000 minimum subscription.</small></span></label>
+              <label class="ib-opt"><input type="radio" name="ftype" value="public"><span>Public Fund<small>Open to retail. Full prospectus.</small></span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="ib-q" data-for="fund">
+            <legend>Main investment focus</legend>
+            <div class="ib-opts">
+              <label class="ib-opt"><input type="radio" name="sector" value="other" checked><span>Listed, private, digital assets or other</span></label>
+              <label class="ib-opt"><input type="radio" name="sector" value="capital"><span>Real estate, energy or infrastructure</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="ib-q" data-for="fund manager">
+            <legend>Where is the manager licensed?</legend>
+            <div class="ib-opts">
+              <label class="ib-opt"><input type="radio" name="lic" value="rfj" checked><span>Singapore, Japan, ADGM, DIFC, Hong Kong or India</span></label>
+              <label class="ib-opt"><input type="radio" name="lic" value="other"><span>Elsewhere, or not licensed</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="ib-q" data-for="fund manager">
+            <legend>Track record and standing</legend>
+            <div class="ib-opts">
+              <label class="ib-opt"><input type="checkbox" name="track" checked><span>Five or more years managing investments, in the firm or its group</span></label>
+              <label class="ib-opt"><input type="checkbox" name="clean" checked><span>No material regulatory action in the last three years</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="ib-q">
+            <legend>Can you meet these by year three?</legend>
+            <div class="ib-opts">
+              <label class="ib-opt"><input type="checkbox" name="hire"><span id="hire-label">Hire 2 Bhutanese, resident in GMC, in front- or middle-office roles</span></label>
+              <label class="ib-opt"><input type="checkbox" name="spend"><span id="spend-label">Spend more than US$50,000 a year in GMC, salaries included</span></label>
+              <label class="ib-opt"><input type="checkbox" name="days"><span id="days-label">Representatives in GMC or Bhutan at least 30 days a year</span></label>
+              <label class="ib-opt"><input type="checkbox" name="bank"><span>Hold an account with a GMC-licensed bank</span></label>
+            </div>
+          </fieldset>
+        </form>
+
+        <div class="ib-result" aria-live="polite">
+          <div class="ac-box ac-box--strong" id="result">
+            <div class="ac-eyebrow ac-eyebrow--accent" id="r-eyebrow">Your route</div>
+            <h3 class="ib-verdict" id="r-verdict"></h3>
+            <ul class="ib-kv" id="r-kv"></ul>
+            <div>
+              <div class="ac-label" style="margin-bottom:var(--space-3)">Next steps</div>
+              <ol class="ib-steps" id="r-steps"></ol>
+            </div>
+            <div id="r-flags" style="display:grid;gap:var(--space-3)"></div>
+            <div class="ib-actions"><a class="ac-btn" href="#book" id="r-cta">Get the notification pack</a></div>
+            <div class="ac-box__note">Guidance only, not legal or tax advice. Final decisions rest with GFSO and the GMC tax office.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Regime -->
+  <section class="ac-section" id="regime">
+    <div class="ac-container">
+      <div class="ib-head">
+        <div class="ac-eyebrow">02 The regime</div>
+        <h2 class="ib-h2">Four vehicles, four routes.</h2>
+        <p class="ib-intro">Summarised from the GMC Guidelines for Family Offices, and for Funds and Investment Managers, effective 1 October 2026.</p>
+      </div>
+      <div class="ib-table-wrap">
+        <table class="ib-table">
+          <thead><tr><th scope="col">Vehicle</th><th scope="col">Regulatory route</th><th scope="col">Tax incentive</th><th scope="col">Minimum AUM</th><th scope="col">Incentive route</th></tr></thead>
+          <tbody>
+            <tr><td>Single-family office</td><td>Exempt from licensing. Notify GFSO. Approval needed only if an MFO provides trustee services.</td><td>Exemption on income from designated investments, its investment manager, and withholding on interest to non-residents. Up to 15 years.</td><td>US$10M</td><td>Automatic on meeting conditions</td></tr>
+            <tr><td>Multi-family office</td><td>May need a Financial Services License: dealing, managing assets or managing funds.</td><td>Same family office incentive.</td><td>US$10M</td><td>Application to GMC</td></tr>
+            <tr><td>Fund</td><td>Exempt Fund and QIF: no-objection, four weeks' notice. Public Fund: GFSO approval before launch.</td><td>Exemption on income from designated investments for the life of the fund, up to 15 years.</td><td>US$10M, or US$50M for real estate, energy, infrastructure</td><td>Application, with an approved manager</td></tr>
+            <tr><td>Investment manager</td><td>Recognised-jurisdiction managers: no-objection in four weeks. Others: full licence, IPA in two to three months on average.</td><td>10% below US$25M AUM, 5% at or above. 10 years, renewable to 20. 0% for five years if approved by 31 Dec 2027. Carried interest exempt.</td><td>None for the rate tier</td><td>Application to GMC</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ib-head" style="margin:var(--space-14) 0 var(--space-6)">
+        <div class="ac-label">Conditions to keep the incentive</div>
+      </div>
+      <ul class="ib-rows">
+        <li><b>Management and control</b><span>Managed and controlled in GMC from year two. Representatives present in GMC or Bhutan at least 30 days a year; 60 days with an employment pass for managers at US$25M or more.</span></li>
+        <li><b>Local hiring</b><span>By year three, at least two Bhutanese resident in GMC in front- or middle-office roles. Three for managers at US$25M or more.</span></li>
+        <li><b>Local spend</b><span>More than US$50,000 a year in GMC, including salaries and office rent. US$100,000 for managers at US$25M or more.</span></li>
+        <li><b>Banking</b><span>An account with a GMC-licensed bank. DK Bank offers nine currencies, Fedwire access, stablecoin transfers and custody.</span></li>
+        <li><b>Reporting</b><span>Results against the conditions are reported in the annual corporate tax return. Missing them two years running ends the incentive, with no clawback.</span></li>
+      </ul>
+      <p class="ib-note">No foreign exchange controls outside Bhutanese ngultrum. No withholding tax on dividends and no capital gains tax. Investors face no profile restrictions. A Singapore double tax agreement is signed and in ratification.</p>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="ac-section" id="how">
+    <div class="ac-container">
+      <div class="ib-head">
+        <div class="ac-eyebrow">03 How it works</div>
+        <h2 class="ib-h2">From first question to a family office on the ground.</h2>
+      </div>
+      <div class="ac-grid-2">
+        <div class="ac-rule-item ac-rule-item--module" style="padding-top:24px">
+          <svg class="ac-icon" viewBox="0 0 40 40" aria-hidden="true"><rect x="16" y="4" width="8" height="8"/><path d="M20 12 V20 M6 20 H34 M6 20 V28 M20 20 V28 M34 20 V28"/><rect x="2" y="28" width="8" height="8"/><rect x="16" y="28" width="8" height="8"/><rect x="30" y="28" width="8" height="8"/></svg>
+          <div class="ac-rule-item__num" style="padding-top:8px">01 — Eligibility</div>
+          <h3 class="ac-rule-item__title">Your route, confirmed</h3>
+          <p class="ac-rule-item__body">Vehicle, AUM, trustee and manager status mapped to the right GFSO route and incentive.</p>
+        </div>
+        <div class="ac-rule-item ac-rule-item--module" style="padding-top:24px">
+          <svg class="ac-icon" viewBox="0 0 40 40" aria-hidden="true"><polygon points="20,5 35,12 20,19 5,12"/><polyline points="5,19 20,26 35,19"/><polyline points="5,26 20,33 35,26"/></svg>
+          <div class="ac-rule-item__num" style="padding-top:8px">02 — Notification pack</div>
+          <h3 class="ac-rule-item__title">Documents ready to file</h3>
+          <p class="ac-rule-item__body">A pre-filled notification or no-objection pack and checklist, filed through GMC's empanelled Corporate Service Providers.</p>
+        </div>
+        <div class="ac-rule-item ac-rule-item--module" style="padding-top:24px">
+          <svg class="ac-icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M13 18 V12 L20 6 L27 12 V18"/><rect x="8" y="18" width="24" height="17"/><path d="M20 24 V29"/></svg>
+          <div class="ac-rule-item__num" style="padding-top:8px">03 — Entity and bank</div>
+          <h3 class="ac-rule-item__title">Incorporated and banked</h3>
+          <p class="ac-rule-item__body">Company, VCC, partnership or trust set up, and the GMC bank account the incentive requires.</p>
+        </div>
+        <div class="ac-rule-item ac-rule-item--module" style="padding-top:24px">
+          <svg class="ac-icon" viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="5" width="30" height="30"/><rect x="16" y="16" width="8" height="8"/><path d="M20 5 V16 M20 24 V35 M5 20 H16 M24 20 H35"/></svg>
+          <div class="ac-rule-item__num" style="padding-top:8px">04 — Substance</div>
+          <h3 class="ac-rule-item__title">Bhutanese hires and local spend</h3>
+          <p class="ac-rule-item__body">Front- and middle-office candidates, office and local services from our verified Bhutan network, then tracked for your annual return.</p>
+        </div>
+      </div>
+      <p class="ib-note">Optional: register interest in Bhutan-based opportunities, including entrepreneurship, innovation and infrastructure, on a private, consent-only basis.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="ac-section" id="faq">
+    <div class="ac-container">
+      <div class="ib-head">
+        <div class="ac-eyebrow">Questions</div>
+        <h2 class="ib-h2">What families and managers ask first.</h2>
+      </div>
+      <div class="ib-faq">
+        <details><summary>Does a single-family office need a licence?</summary><p>No. It notifies GFSO of its activities. It needs approval only if a multi-family office provides its trustee services.</p></details>
+        <details><summary>When must we meet the US$10M minimum?</summary><p>Only at the point of applying. Legally enforceable committed capital counts toward assets under management.</p></details>
+        <details><summary>What can a family office or fund invest in?</summary><p>Anything. The exemption covers designated investments, a broad list including equities, bonds, digital assets, commodities and property anywhere.</p></details>
+        <details><summary>Which entity forms are available?</summary><p>Companies, variable capital companies, partnerships and trusts. Trusts are recognised under Singapore and English common law.</p></details>
+        <details><summary>What if we miss a condition one year?</summary><p>The incentive continues that year. It ends only after two consecutive years of non-compliance, and earlier relief is not clawed back.</p></details>
+        <details><summary>Are you the regulator or a service provider?</summary><p>Neither. We are an independent onboarding desk. Filings go through GMC's empanelled Corporate Service Providers; decisions rest with GFSO and the GMC tax office.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Closing -->
+<div class="ac-inverse ac-texture--inverse" id="book">
+  <section class="ac-container ib-close">
+    <div class="ac-eyebrow" style="color:var(--inverse-label)">Book a call</div>
+    <h2 class="ib-cta">Get your notification pack and setup plan.</h2>
+    <p class="ac-muted" style="max-width:var(--measure)">Tell us what you are setting up. We reply with your route, a document checklist and a timeline.</p>
+    <form class="ib-form" action="mailto:hello@incorporatebhutan.com" method="post" enctype="text/plain">
+      <div class="ib-form__grid">
+        <label class="ac-field"><span class="ac-field__label">Name</span><input class="ac-input" name="name" type="text" autocomplete="name" placeholder="Full name"></label>
+        <label class="ac-field"><span class="ac-field__label">Work email</span><input class="ac-input" name="email" type="email" autocomplete="email" required placeholder="you@office.com"></label>
+        <label class="ac-field"><span class="ac-field__label">Setting up</span><input class="ac-input" name="vehicle" id="f-vehicle" type="text" placeholder="Single-family office"></label>
+        <label class="ac-field"><span class="ac-field__label">AUM, US$ millions</span><input class="ac-input" name="aum" id="f-aum" type="text" placeholder="25"></label>
+      </div>
+      <label class="ib-tick"><input type="checkbox" name="opportunities" value="yes"><span>Share Bhutan-based investment opportunities with me.</span></label>
+      <div class="ib-actions"><button class="ac-btn ac-btn--inverse" type="submit">Book a call</button><a class="ac-link" href="mailto:hello@incorporatebhutan.com" style="font-size:13px">Or email us</a></div>
+    </form>
+  </section>
+  <footer class="ac-container ib-footer">
+    <a class="ac-wordmark" href="#top">IncorporateBhutan</a>
+    <nav aria-label="Footer"><a href="#check">Eligibility</a><a href="#regime">The regime</a><a href="#how">How it works</a><a href="#faq">Questions</a><a href="https://gmc.bt/news/guidelines-for-family-offices-and-for-funds-and-investment-managers_9xmj9">Official Guidelines</a><a href="mailto:hello@incorporatebhutan.com">hello@incorporatebhutan.com</a></nav>
+    <p>IncorporateBhutan is an independent onboarding service, not affiliated with or endorsed by the Gelephu Mindfulness City Authority, the Gelephu Financial Services Office or the Royal Government of Bhutan. Summaries follow the GMC Guidelines and FAQs released 20 September 2026 and are not legal, tax or investment advice. Official enquiries: gfso@gmc.bt for regulation, gelephu_tax@gmc.bt for tax.</p>
+    <p>© 2026 IncorporateBhutan</p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var form = document.getElementById('elig');
+  var $ = function (id) { return document.getElementById(id); };
+  var NAMES = { sfo: 'Single-family office', mfo: 'Multi-family office', fund: 'Fund', manager: 'Investment manager' };
+
+  function val(name) { var el = form.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : null; }
+  function on(name) { var el = form.querySelector('input[name="' + name + '"]'); return !!(el && el.checked); }
+  function money(m) { return 'US$' + (Math.round(m * 10) / 10) + 'M'; }
+
+  function render() {
+    var type = val('type');
+    var aum = parseFloat($('aum').value);
+    if (isNaN(aum) || aum < 0) aum = 0;
+    var big = type === 'manager' && aum >= 25;
+
+    // show only the questions for this vehicle
+    form.querySelectorAll('.ib-q[data-for]').forEach(function (q) {
+      q.hidden = q.getAttribute('data-for').split(' ').indexOf(type) === -1;
+    });
+    $('hire-label').textContent = 'Hire ' + (big ? 3 : 2) + ' Bhutanese, resident in GMC, in front- or middle-office roles';
+    $('spend-label').textContent = 'Spend more than US$' + (big ? '100,000' : '50,000') + ' a year in GMC, salaries included';
+    $('days-label').textContent = 'Representatives in GMC or Bhutan at least ' + (big ? '60 days a year, with an employment pass' : '30 days a year');
+
+    var verdict, kv = [], steps = [], flags = [], ok = true;
+    var min = 10;
+
+    if (type === 'sfo') {
+      var viaMfo = val('trustee') === 'mfo';
+      verdict = viaMfo ? 'Notify GFSO and seek approval for the MFO trustee arrangement.' : 'Notify GFSO. No licence and no tax application.';
+      kv.push(['Route', viaMfo ? 'Notification, plus GFSO approval' : 'Notification to GFSO']);
+      kv.push(['Incentive', 'Exemption on income from designated investments, up to 15 years from the first full financial year']);
+      kv.push(['Applies', 'Automatically, once conditions are met']);
+      steps = ['Incorporate the family office entity in GMC through an empanelled CSP.', 'Notify GFSO of the family office activities.', 'Open the GMC bank account and confirm AUM at entry.', 'Plan Bhutanese hires and local spend for year three.'];
+    } else if (type === 'mfo') {
+      verdict = 'Confirm licensing with GFSO, then apply for the incentive.';
+      kv.push(['Route', 'Financial Services License likely, depending on activities']);
+      kv.push(['Incentive', 'Family office exemption, up to 15 years']);
+      kv.push(['Applies', 'By application to GMC']);
+      steps = ['Map activities to regulated permissions: dealing, managing assets, managing funds.', 'Prepare the licence application; expect an In-Principle Approval in two to three months on average.', 'Apply for the tax incentive via gelephu_tax@gmc.bt.', 'Plan Bhutanese hires and local spend for year three.'];
+    } else if (type === 'fund') {
+      var ft = val('ftype'), cap = val('sector') === 'capital';
+      min = cap ? 50 : 10;
+      verdict = ft === 'public' ? 'Seek GFSO approval before launching the Public Fund.' : 'Seek a GFSO no-objection four weeks before launch.';
+      kv.push(['Route', ft === 'public' ? 'GFSO approval' : 'No-objection, target four weeks']);
+      kv.push(['Incentive', 'Exemption on income from designated investments for the life of the fund, up to 15 years']);
+      kv.push(['Minimum', money(min) + (cap ? ' for real estate, energy or infrastructure' : '')]);
+      kv.push(['Applies', 'By application, with an approved investment manager']);
+      steps = ['Domicile the fund in GMC as a company, VCC, partnership or trust.', ft === 'public' ? 'Contact GFSO and your case officer about Public Fund approval.' : 'Submit the simplified prospectus and factsheets for a no-objection.', 'Confirm the manager is an approved investment manager.', 'Apply for the fund incentive via gelephu_tax@gmc.bt.'];
+      if (val('lic') !== 'rfj') flags.push('The manager needs a GMC licence or approval before the fund can qualify.');
+    } else {
+      var rfj = val('lic') === 'rfj';
+      verdict = rfj ? 'Seek a GFSO no-objection. No separate GMC licence needed.' : 'Apply for a GFSO licence to manage assets.';
+      kv.push(['Route', rfj ? 'No-objection, target four weeks' : 'Full licence, IPA in two to three months on average']);
+      kv.push(['Tax rate', (aum >= 25 ? '5%' : '10%') + ' for 10 years, renewable to 20. 0% for the first five years if approved by 31 Dec 2027']);
+      kv.push(['Carry', 'Carried interest from qualifying funds is exempt']);
+      kv.push(['Applies', 'By application to GMC']);
+      steps = rfj
+        ? ['Notify GFSO at least four weeks before starting.', 'Confirm the licence is valid and subsisting in the home jurisdiction.', 'Apply for the manager incentive before 31 December 2027 to secure five years at 0%.', 'Plan representatives, hires and local spend.']
+        : ['Prepare licence documents: one licensed SEO and two licensed directors with five years each.', 'Appoint a senior manager for operational risk and controls.', 'Apply for the manager incentive before 31 December 2027 to secure five years at 0%.', 'Plan representatives, hires and local spend.'];
+      if (!on('track')) flags.push('Without a five-year track record, GFSO may weigh controllers’ and key managers’ experience instead.');
+      min = 0;
+    }
+
+    if ((type === 'fund' || type === 'manager') && !on('clean') && val('lic') === 'rfj') {
+      flags.push('Material regulatory action in the last three years rules out the recognised-jurisdiction route.'); ok = false;
+    }
+    if (min && aum < min) { flags.push('Below the ' + money(min) + ' minimum for the tax incentive. AUM is tested once, when you apply.'); ok = false; }
+
+    var missing = ['hire', 'spend', 'days', 'bank'].filter(function (k) { return !on(k); });
+    if (missing.length) flags.push(missing.length + ' of 4 substance conditions not yet planned. These must be met by year three to keep the incentive.');
+
+    $('r-eyebrow').textContent = NAMES[type] + (ok ? ' · likely eligible' : ' · check before proceeding');
+    $('r-verdict').textContent = verdict;
+    $('r-kv').innerHTML = kv.map(function (r) { return '<li><span class="ac-label">' + r[0] + '</span><span>' + r[1] + '</span></li>'; }).join('');
+    $('r-steps').innerHTML = steps.map(function (s) { return '<li>' + s + '</li>'; }).join('');
+    $('r-flags').innerHTML = flags.map(function (f) { return '<p class="ib-flag">' + f + '</p>'; }).join('');
+
+    // carry answers into the booking form
+    $('f-vehicle').value = NAMES[type];
+    $('f-aum').value = aum ? String(aum) : '';
+  }
+
+  form.addEventListener('input', render);
+  form.addEventListener('change', render);
+  render();
+})();
+</script>
+</body>
+</html>
